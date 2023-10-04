@@ -1,0 +1,29 @@
+{
+    "data": [
+      {
+        "id": 1,
+        "name": "Cox's Bazar",
+        "details": "Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island.",
+        "image": "https://i.ibb.co/7GSHnQm/Rectangle-6.png"
+      },
+      {
+        "id": 2,
+        "name": "SREEMANGAL",
+        "details": "Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island.",
+        "image": "https://i.ibb.co/pngsSnz/Rectangle-8.png"
+      },
+      {
+        "id": 3,
+        "name": "SUNDARBAN",
+        "details": "Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island.",
+        "image": "https://i.ibb.co/b76GQ5r/Rectangle-9.png"
+      },
+      {
+        "id": 4,
+        "name": "Sitakundu",
+        "details": "Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island.",
+        "image": "https://i.ibb.co/YTNQpFH/Rectangle-4.png"
+      }
+    ]
+  }
+  
