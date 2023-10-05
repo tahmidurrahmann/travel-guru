@@ -9,12 +9,12 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         logOut()
-        .then(()=> {
-            toast.success('Log-out successful.')
-        })
-        .catch(() => {
-            toast.error('Log-out unsuccessful.')
-        })
+            .then(() => {
+                toast.success('Log-out successful.')
+            })
+            .catch(() => {
+                toast.error('Log-out unsuccessful.')
+            })
     }
 
     const navLinks = <div className="flex justify-center items-center">
@@ -52,6 +52,11 @@ const Navbar = () => {
         </NavLink></li>
         <li>{user ? <div>
             <h1>{user.displayName}</h1>
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                    <img src={user?.photoURL} />
+                </div>
+            </label>
             <span><button onClick={handleLogOut} className="btn btn-neutral border-none bg-[#F9A51A]">LogOut</button></span>
         </div> : <NavLink
             to="/login"
@@ -65,7 +70,7 @@ const Navbar = () => {
     </div>
 
     return (
-        <div className="navbar bg-base-100 container mx-auto">
+        <div className="navbar">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
