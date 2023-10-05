@@ -1,16 +1,20 @@
 import { useContext, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../shared/Navbar/AuthProvider/AuthProvider";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import toast from "react-hot-toast";
+import { FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
 
-    const { signIn, forgotPassword } = useContext(AuthContext);
+    const { signIn, forgotPassword, googleLogIn} = useContext(AuthContext);
     const emailRef = useRef('');
     const [successHandle, setSuccessHandle] = useState(null);
     const [errorHandle, setErrorHandle] = useState(null);
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location);
 
     const handleLogin = e => {
         e.preventDefault();
@@ -33,11 +37,12 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                if(loggedUser.emailVerified){
+                if (loggedUser.emailVerified) {
                     setSuccessHandle('Successfully SignIn')
+                    navigate(location?.state ? location.state : '/')
                     console.log(loggedUser);
                 }
-                else{
+                else {
                     toast.error('please verify your email');
                     return;
                 }
@@ -49,13 +54,26 @@ const Login = () => {
             })
     }
 
+    const handleGoogleLogIn = () => {
+        googleLogIn()
+        .then(result => {
+            const loggedUser = result.user;
+            setSuccessHandle('Successfully log in with google');
+            console.log(loggedUser);
+        })
+        .catch(error => {
+            const message = error.message;
+            console.error(message);
+        })
+    }
+
     const handleForgotPassword = () => {
         const email = emailRef.current.value;
         console.log(email);
-        if(!email){
+        if (!email) {
             toast.error('Invalid email address')
         }
-        else if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)){
+        else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
             toast.error('Invalid email address')
         }
         forgotPassword(email)
@@ -112,6 +130,12 @@ const Login = () => {
                             successHandle && <p className="text-green-500">{successHandle}</p>
                         }
                     </form>
+                    <div className="flex justify-center items-center gap-2">
+                        <div className="w-[150px] h-0.5 bg-[#AAA]"></div>
+                        <p>Or</p>
+                        <div className="w-[150px] h-0.5 bg-[#AAA]"></div>
+                    </div>
+                    <Link className="flex justify-center"><button onClick={handleGoogleLogIn} className="btn my-4 py-2 border rounded-full font-medium text-[#000] flex gap-16 justify-center items-center"><FaGoogle ></FaGoogle> Continue With Google</button></Link>
                 </div>
             </div>
         </div>
